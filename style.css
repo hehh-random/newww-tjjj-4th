@@ -1,116 +1,156 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Cormorant Garamond',serif;
-    background:linear-gradient(to bottom,#fff0f5,#ffe4e1);
-    color:#5a3b34;
-    min-height:100vh;
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+    color: #5a3b34;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-body.night{
-    background:linear-gradient(to bottom,#140d18,#24152b);
-    color:#f5e6dc;
+/* 🌙 NIGHT MODE */
+body.night {
+    background: linear-gradient(to bottom, #140d18, #24152b);
+    color: #f5e6dc;
 }
 
-#petals{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
+/* APP */
+#app {
+    display: none;
 }
 
-button{
-    cursor:pointer;
-    padding:10px 15px;
-    border:none;
-    border-radius:10px;
+/* LOCK SCREEN */
+#lockScreen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.8);
 }
 
-.primaryBtn{
-    background:#d17c99;
-    color:white;
+.lockCard {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
 }
 
-.secondaryBtn{
-    background:#c78567;
-    color:white;
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
 }
 
-#app{
-    display:none;
+/* BUTTONS */
+button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.2s ease;
 }
 
-#lockScreen{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:rgba(0,0,0,0.8);
+button:hover {
+    transform: scale(1.05);
 }
 
-.lockCard{
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
+.primaryBtn {
+    background: #d17c99;
+    color: white;
 }
 
-input{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
+.secondaryBtn {
+    background: #c78567;
+    color: white;
 }
 
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(80px,1fr));
-    gap:10px;
-    padding:20px;
+/* LETTER GRID */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    padding: 20px;
 }
 
-.letter{
-    width:80px;
-    height:60px;
-    background:#fffaf0;
-    border-radius:10px;
-    position:relative;
+.letter {
+    width: 80px;
+    height: 60px;
+    background: #fffaf0;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
-.letter::before{
-    content:'';
-    position:absolute;
-    border-left:40px solid transparent;
-    border-right:40px solid transparent;
-    border-top:25px solid #e8d7c5;
+.letter:hover {
+    transform: scale(1.08);
 }
 
-.seal{
-    width:12px;
-    height:12px;
-    background:red;
-    border-radius:50%;
-    position:absolute;
-    top:25px;
-    left:50%;
-    transform:translateX(-50%);
+/* envelope flap */
+.letter::before {
+    content: '';
+    position: absolute;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 25px solid #e8d7c5;
 }
 
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.7);
-    justify-content:center;
-    align-items:center;
+/* seal */
+.seal {
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.paper{
-    background:#fff6d5;
-    padding:25px;
-    border-radius:20px;
-    width:80%;
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.paper {
+    background: #fff6d5;
+    padding: 25px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
+    animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* 🌸 PETALS */
+.petal {
+    position: fixed;
+    top: -10px;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
 }
