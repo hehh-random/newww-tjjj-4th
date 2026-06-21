@@ -30,7 +30,7 @@ function unlockApp() {
         updateGarden();
         startPetals();
     } else {
-        passwordError.textContent = "Wrong password ❤️";
+        passwordError.textContent = "Wrong password ";
     }
 }
 
@@ -100,7 +100,7 @@ function updateGarden() {
     openedLetters.forEach((i) => {
         const span = document.createElement("span");
 
-        const emojis = ["🌸", "🌷", "🌺", "🌻", "🌼", "💮"];
+        const emojis = ["🌷", "🌷", "🌷"];
         span.textContent = emojis[i % emojis.length];
 
         span.className = "flower";
@@ -142,7 +142,7 @@ function spawnPetal() {
     const petal = document.createElement("div");
     petal.className = "petal";
 
-    const emojis = ["🌸", "🌺", "💮", "🌷", "✨"];
+    const emojis = ["🌸", "🍁", "💮", "🫧", "🍂"];
     petal.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
     petal.style.left = Math.random() * window.innerWidth + "px";

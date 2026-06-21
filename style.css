@@ -91,7 +91,7 @@ body.night .paper {
 .seal {
     width: 12px;
     height: 12px;
-    background: red;
+    background: rgb(208, 17, 17);
     border-radius: 50%;
     position: absolute;
     top: 25px;
