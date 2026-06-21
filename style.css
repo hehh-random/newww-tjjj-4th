@@ -56,84 +56,171 @@ body.night .gardenSection{
    PETALS
 ========================= */
 
+/* =========================
+PETALS
+========================= */
+
 #petals{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:0;
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:1;
+
+
+filter:
+    saturate(115%);
+
+
 }
+
+/* Sakura Petal */
 
 .petal{
-    position:fixed;
-    top:-50px;
+position:fixed;
+top:-100px;
 
-    width:18px;
-    height:18px;
 
-    background:linear-gradient(
-        135deg,
-        #ffd1dc,
-        #ff9eb5
+width:22px;
+height:28px;
+
+background:
+    radial-gradient(
+        circle at 35% 30%,
+        #fff8fb 0%,
+        #ffe5ee 30%,
+        #ffc7da 65%,
+        #ffabc7 100%
     );
 
-    border-radius:70% 0 70% 0;
+border-radius:
+    70% 70% 70% 70%
+    / 100% 100% 55% 55%;
 
-    opacity:.85;
+opacity:.92;
 
-    box-shadow:
-        0 0 8px rgba(255,182,193,.4);
+filter:
+    drop-shadow(
+        0 0 8px
+        rgba(255,182,193,.35)
+    );
 
-    animation:fall linear forwards;
+animation:fall linear forwards;
+
+transform-origin:center center;
+
+
 }
 
+/* Petal highlight */
+
+.petal::before{
+content:"";
+
+position:absolute;
+
+width:10px;
+height:10px;
+
+left:4px;
+top:4px;
+
+border-radius:50%;
+
+background:
+    rgba(255,255,255,.55);
+
+filter:blur(2px);
+
+
+}
+
+/* Tiny center crease */
+
 .petal::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:inherit;
-    border-radius:inherit;
-    transform:rotate(90deg);
+content:"";
+
+
+position:absolute;
+
+width:2px;
+height:12px;
+
+left:50%;
+top:8px;
+
+transform:
+    translateX(-50%);
+
+background:
+    rgba(255,255,255,.35);
+
+border-radius:999px;
+
+
 }
 
 @keyframes fall{
 
-    0%{
-        transform:
-        translateY(-50px)
-        translateX(0)
-        rotate(0deg);
-    }
 
-    25%{
-        transform:
-        translateY(25vh)
-        translateX(20px)
-        rotate(90deg);
-    }
+0%{
+    transform:
+        translate3d(0,-120px,0)
+        rotate(0deg)
+        scale(.8);
 
-    50%{
-        transform:
-        translateY(50vh)
-        translateX(-20px)
-        rotate(180deg);
-    }
+    opacity:0;
+}
 
-    75%{
-        transform:
-        translateY(75vh)
-        translateX(30px)
-        rotate(270deg);
-    }
+10%{
+    opacity:.95;
+}
 
-    100%{
-        transform:
-        translateY(110vh)
-        translateX(-15px)
-        rotate(360deg);
+25%{
+    transform:
+        translate3d(
+            60px,
+            25vh,
+            0
+        )
+        rotate(90deg)
+        scale(1);
+}
 
-        opacity:0;
-    }
+50%{
+    transform:
+        translate3d(
+            -80px,
+            50vh,
+            0
+        )
+        rotate(180deg)
+        scale(.95);
+}
+
+75%{
+    transform:
+        translate3d(
+            90px,
+            75vh,
+            0
+        )
+        rotate(300deg)
+        scale(1.05);
+}
+
+100%{
+    transform:
+        translate3d(
+            -60px,
+            120vh,
+            0
+        )
+        rotate(420deg)
+        scale(.9);
+
+    opacity:0;
+}
 }
 
 /* =========================

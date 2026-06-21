@@ -516,8 +516,8 @@ function createPetal() {
         window.innerWidth +
         "px";
 
-    const size =
-        Math.random() * 12 + 10;
+const size =
+    Math.random() * 16 + 12;
 
     petal.style.width =
         size + "px";
@@ -529,7 +529,7 @@ function createPetal() {
         Math.random() * 0.5 + 0.5;
 
     petal.style.animationDuration =
-        Math.random() * 6 + 6 + "s";
+    Math.random() * 8 + 8 + "s";
 
     document
         .getElementById("petals")
