@@ -358,8 +358,8 @@ function updateGarden() {
         "🌷",
         "🌸",
         "🌹",
-        "🌺",
-        "🪻"
+        "🪷",
+        "🌷"
     ];
 
     openedLetters.forEach((index) => {
