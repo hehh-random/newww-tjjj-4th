@@ -1,9 +1,6 @@
 const PASSWORD = "2524";
 
-const reasons = [];
-for (let i = 1; i <= 100; i++) {
-    reasons.push(`Reason ${i} ❤️`);
-}
+const reasons = Array.from({ length: 100 }, (_, i) => `Reason ${i + 1} ❤️`);
 
 let currentLetter = 0;
 let openedLetters = JSON.parse(localStorage.getItem("openedLetters") || "[]");
@@ -21,7 +18,7 @@ const letterText = document.getElementById("letterText");
 const progressFill = document.getElementById("progressFill");
 const count = document.getElementById("count");
 
-document.getElementById("unlockBtn").addEventListener("click", unlockApp);
+document.getElementById("unlockBtn").onclick = unlockApp;
 
 function unlockApp() {
     if (passwordInput.value.trim() === PASSWORD) {
@@ -31,8 +28,7 @@ function unlockApp() {
         buildLetters();
         updateProgress();
         updateGarden();
-
-        startPetals(); // 🌸 start animation ONLY after unlock
+        startPetals();
     } else {
         passwordError.textContent = "Wrong password ❤️";
     }
@@ -45,8 +41,14 @@ function buildLetters() {
         const letter = document.createElement("div");
         letter.className = "letter";
 
+        // 💌 seal
         const seal = document.createElement("div");
         seal.className = "seal";
+
+        // 💔 mark opened letters visually
+        if (openedLetters.includes(index)) {
+            letter.classList.add("opened");
+        }
 
         letter.appendChild(seal);
 
@@ -65,12 +67,12 @@ function openLetter(index) {
 
         updateProgress();
         updateGarden();
+        rebuildLetters(); // 💥 refresh visual state
     }
 
     modal.style.display = "flex";
     letterTitle.textContent = `Letter ${index + 1}`;
 
-    // 🌟 FINAL LETTER SPECIAL
     if (index === 99) {
         letterTitle.textContent = "💖 FINAL LETTER 💖";
         letterText.textContent =
@@ -80,11 +82,12 @@ function openLetter(index) {
     }
 }
 
-function updateProgress() {
-    count.textContent = openedLetters.length;
-    progressFill.style.width = (openedLetters.length / 100) * 100 + "%";
+/* 💌 refresh letters so they visually “open” */
+function rebuildLetters() {
+    buildLetters();
 }
 
+/* 🌸 FIXED MEMORY GARDEN (NO DUPLICATES, CLEAN ORDER) */
 function updateGarden() {
     const garden = document.getElementById("garden");
     if (!garden) return;
@@ -97,14 +100,19 @@ function updateGarden() {
         const emojis = ["🌸", "🌷", "🌺", "🌻", "🌼", "💮"];
         span.textContent = emojis[i % emojis.length];
 
-        span.style.fontSize = "24px";
-        span.style.margin = "5px";
+        span.className = "flower";
 
         garden.appendChild(span);
     });
 }
 
-// Modal controls
+/* 📊 progress */
+function updateProgress() {
+    count.textContent = openedLetters.length;
+    progressFill.style.width = `${(openedLetters.length / 100) * 100}%`;
+}
+
+/* 💌 modal controls */
 document.getElementById("closeBtn").onclick = () => {
     modal.style.display = "none";
 };
@@ -126,7 +134,7 @@ document.getElementById("resetBtn").onclick = () => {
     location.reload();
 };
 
-/* 🌸 PETALS SYSTEM (FIXED + CLEAN) */
+/* 🌸 PETALS */
 function spawnPetal() {
     const petal = document.createElement("div");
     petal.className = "petal";

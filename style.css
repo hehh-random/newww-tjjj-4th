@@ -7,15 +7,26 @@
 body {
     font-family: 'Cormorant Garamond', serif;
     background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
-    color: #5a3b34;
+    color: #4a2f2a;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* 🌙 NIGHT MODE */
+/* 🌙 DARK MODE FIXED (BIG FIX HERE) */
 body.night {
-    background: linear-gradient(to bottom, #140d18, #24152b);
-    color: #f5e6dc;
+    background: linear-gradient(to bottom, #0f0b14, #1b1024);
+    color: #ffffff;
+}
+
+/* make text readable in dark mode */
+body.night .letter {
+    background: #2a1b2f;
+    color: #fff;
+}
+
+body.night .paper {
+    background: #2b1d1a;
+    color: #fff;
 }
 
 /* APP */
@@ -41,36 +52,6 @@ body.night {
     width: 300px;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-}
-
-/* BUTTONS */
-button {
-    cursor: pointer;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 10px;
-    transition: 0.2s ease;
-}
-
-button:hover {
-    transform: scale(1.05);
-}
-
-.primaryBtn {
-    background: #d17c99;
-    color: white;
-}
-
-.secondaryBtn {
-    background: #c78567;
-    color: white;
-}
-
 /* LETTER GRID */
 .container {
     display: grid;
@@ -79,6 +60,7 @@ button:hover {
     padding: 20px;
 }
 
+/* 💌 LETTER DEFAULT */
 .letter {
     width: 80px;
     height: 60px;
@@ -86,11 +68,14 @@ button:hover {
     border-radius: 10px;
     position: relative;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.letter:hover {
-    transform: scale(1.08);
+/* 💔 OPENED LETTER LOOK */
+.letter.opened {
+    transform: rotateX(10deg) scale(0.95);
+    opacity: 0.7;
 }
 
 /* envelope flap */
@@ -114,12 +99,12 @@ button:hover {
     transform: translateX(-50%);
 }
 
-/* MODAL */
+/* 💌 MODAL */
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.75);
     justify-content: center;
     align-items: center;
 }
@@ -130,11 +115,23 @@ button:hover {
     border-radius: 20px;
     width: 80%;
     max-width: 500px;
-    animation: pop 0.25s ease;
+}
+
+/* 🌸 MEMORY GARDEN FIX */
+#garden {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px;
+}
+
+.flower {
+    font-size: 22px;
+    animation: pop 0.3s ease;
 }
 
 @keyframes pop {
-    from { transform: scale(0.8); opacity: 0; }
+    from { transform: scale(0.5); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
 
