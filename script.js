@@ -4,10 +4,108 @@ const PASSWORD = "2524";
    REASONS
 ========================= */
 
-const reasons = Array.from(
-    { length: 100 },
-    (_, i) => `Reason ${i + 1} ❤️`
-);
+const reasons = [
+"Because your smile can brighten even my darkest day ❤️",
+"Because hearing your voice instantly makes me happier ❤️",
+"Because you make ordinary moments feel magical ❤️",
+"Because you always know how to make me laugh ❤️",
+"Because being around you feels like home ❤️",
+"Because your kindness inspires me ❤️",
+"Because you make me want to be a better person ❤️",
+"Because your happiness matters to me ❤️",
+"Because you believe in me even when I doubt myself ❤️",
+"Because every day with you feels special ❤️",
+"Because your laugh is my favorite sound ❤️",
+"Because you make difficult days easier ❤️",
+"Because you are beautiful inside and out ❤️",
+"Because you care deeply about the people you love ❤️",
+"Because you make me feel understood ❤️",
+"Because your hugs feel safe ❤️",
+"Because your eyes tell stories words cannot ❤️",
+"Because you bring warmth wherever you go ❤️",
+"Because you always try your best ❤️",
+"Because you make life more exciting ❤️",
+"Because you remember the little things ❤️",
+"Because you make me smile without trying ❤️",
+"Because you have the kindest heart ❤️",
+"Because you make every memory better ❤️",
+"Because you are wonderfully unique ❤️",
+"Because your presence calms me ❤️",
+"Because you make me feel lucky every day ❤️",
+"Because I can be myself around you ❤️",
+"Because you make even boring moments fun ❤️",
+"Because your love makes me stronger ❤️",
+"Because you always know how to comfort me ❤️",
+"Because your dreams inspire me ❤️",
+"Because your determination amazes me ❤️",
+"Because you make me feel appreciated ❤️",
+"Because you bring light wherever you go ❤️",
+"Because you make me laugh when I need it most ❤️",
+"Because your smile is contagious ❤️",
+"Because your heart is pure ❤️",
+"Because you make every season feel beautiful ❤️",
+"Because every conversation with you means something ❤️",
+"Because you understand me in ways nobody else does ❤️",
+"Because your excitement makes everything better ❤️",
+"Because you make me look forward to tomorrow ❤️",
+"Because your support means the world to me ❤️",
+"Because you never stop caring ❤️",
+"Because you make me feel seen ❤️",
+"Because your presence is comforting ❤️",
+"Because your love feels genuine ❤️",
+"Because you make ordinary days unforgettable ❤️",
+"Because you are my favorite notification ❤️",
+"Because you are worth every mile, minute, and memory ❤️",
+"Because you make my heart race in the best way ❤️",
+"Because your happiness feels like my happiness ❤️",
+"Because you are thoughtful ❤️",
+"Because you make me believe in love ❤️",
+"Because you make every day brighter ❤️",
+"Because your voice can calm any storm ❤️",
+"Because your laughter is unforgettable ❤️",
+"Because your soul is beautiful ❤️",
+"Because you always leave things better than you found them ❤️",
+"Because you make me feel safe ❤️",
+"Because your love feels effortless ❤️",
+"Because you never fail to surprise me ❤️",
+"Because your heart is full of compassion ❤️",
+"Because you make me feel important ❤️",
+"Because you always know how to cheer me up ❤️",
+"Because you make me feel at peace ❤️",
+"Because every memory with you is precious ❤️",
+"Because you inspire me to dream bigger ❤️",
+"Because you make life feel meaningful ❤️",
+"Because you are one of my favorite people in the world ❤️",
+"Because you make every place feel better ❤️",
+"Because your smile deserves to be protected forever ❤️",
+"Because you make me feel loved ❤️",
+"Because your existence makes the world brighter ❤️",
+"Because you are patient ❤️",
+"Because you are thoughtful ❤️",
+"Because your heart is incredibly beautiful ❤️",
+"Because you always try to understand ❤️",
+"Because you make me excited about the future ❤️",
+"Because your affection feels genuine ❤️",
+"Because you make me laugh until my cheeks hurt ❤️",
+"Because you make every day feel like a gift ❤️",
+"Because you care about the people around you ❤️",
+"Because your smile is unforgettable ❤️",
+"Because you make me feel special ❤️",
+"Because your kindness changes lives ❤️",
+"Because your presence is enough ❤️",
+"Because you make me grateful every day ❤️",
+"Because loving you feels natural ❤️",
+"Because every chapter of my life is better with you in it ❤️",
+"Because you are my favorite thought ❤️",
+"Because you make my heart feel full ❤️",
+"Because you make life worth celebrating ❤️",
+"Because every day I find another reason to love you ❤️",
+"Because you are you ❤️",
+"Because you make the world feel softer ❤️",
+"Because you are my happy place ❤️",
+"Because no list could ever truly contain all the reasons ❤️",
+"Because even after 100 reasons, I still have infinitely more to tell you ❤️"
+];
 
 /* =========================
    STATE
@@ -184,17 +282,35 @@ function openLetter(index) {
             25
         );
 
-    } else {
+function openLetter(index) {
 
-        letterTitle.textContent =
-            `Letter ${index + 1}`;
+currentLetter = index;
 
-        typeWriter(
-            reasons[index],
-            letterText,
-            25
-        );
-    }
+if (!openedLetters.includes(index)) {
+
+    openedLetters.push(index);
+
+    localStorage.setItem(
+        "openedLetters",
+        JSON.stringify(openedLetters)
+    );
+
+    updateProgress();
+    updateGarden();
+    buildLetters();
+}
+
+modal.style.display = "flex";
+
+letterTitle.textContent =
+    `Letter ${index + 1}`;
+
+typeWriter(
+    reasons[index],
+    letterText,
+    25
+);
+
 }
 
 /* =========================
@@ -272,8 +388,8 @@ function updateProgress() {
     count.textContent =
         openedLetters.length;
 
-    progressFill.style.width =
-        `${openedLetters.length}%`;
+        progressFill.style.width =
+        `${(openedLetters.length / reasons.length) * 100}%`;
 }
 
 /* =========================
