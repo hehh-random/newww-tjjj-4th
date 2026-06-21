@@ -1,24 +1,14 @@
-/* ==========================================
-RESET
-========================================== */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    min-height:100vh;
-    overflow-x:hidden;
     font-family:'Cormorant Garamond',serif;
     background:linear-gradient(to bottom,#fff0f5,#ffe4e1);
     color:#5a3b34;
-    transition:.4s;
+    min-height:100vh;
 }
 
 body.night{
@@ -26,102 +16,17 @@ body.night{
     color:#f5e6dc;
 }
 
-/* ==========================================
-FLOATING PETALS
-========================================== */
-
 #petals{
     position:fixed;
     inset:0;
     pointer-events:none;
-    overflow:hidden;
-    z-index:0;
 }
-
-.petal{
-    position:absolute;
-    top:-30px;
-    font-size:18px;
-    animation:fall linear infinite;
-}
-
-@keyframes fall{
-    from{
-        transform:translateY(-20px) rotate(0deg);
-        opacity:1;
-    }
-    to{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:0;
-    }
-}
-
-/* ==========================================
-PASSWORD SCREEN
-========================================== */
-
-#lockScreen{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:rgba(0,0,0,.85);
-    backdrop-filter:blur(10px);
-}
-
-.lockCard{
-    width:min(90%,380px);
-    padding:35px;
-    border-radius:25px;
-    background:white;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-}
-
-body.night .lockCard{
-    background:#2e2036;
-    color:white;
-}
-
-.lockCard h1{
-    margin-bottom:10px;
-}
-
-.lockCard p{
-    margin-bottom:20px;
-}
-
-.lockCard input{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    margin-bottom:15px;
-    font-size:16px;
-}
-
-.error{
-    color:#ff4d6d;
-    min-height:20px;
-}
-
-/* ==========================================
-BUTTONS
-========================================== */
 
 button{
-    border:none;
     cursor:pointer;
-    border-radius:12px;
-    padding:10px 16px;
-    transition:.25s;
-    font-family:inherit;
-}
-
-button:hover{
-    transform:translateY(-2px);
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
 }
 
 .primaryBtn{
@@ -134,367 +39,78 @@ button:hover{
     color:white;
 }
 
-/* ==========================================
-APP WRAPPER
-========================================== */
-
 #app{
     display:none;
-    position:relative;
-    z-index:2;
 }
 
-/* ==========================================
-TOP BAR
-========================================== */
-
-.controls{
+#lockScreen{
+    position:fixed;
+    inset:0;
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    padding:15px;
+    align-items:center;
+    background:rgba(0,0,0,0.8);
 }
 
-/* ==========================================
-HERO
-========================================== */
-
-.hero{
-    text-align:center;
-    padding:25px 15px;
-}
-
-.hero h1{
-    font-size:clamp(2rem,5vw,4rem);
-}
-
-.hero p{
-    margin-top:10px;
-    font-size:1.2rem;
-}
-
-/* ==========================================
-PROGRESS BAR
-========================================== */
-
-.progressWrapper{
-    width:min(90%,600px);
-    margin:20px auto;
-}
-
-.progressBar{
-    height:14px;
-    background:#e7dcdc;
-    border-radius:50px;
-    overflow:hidden;
-}
-
-.progressFill{
-    width:0%;
-    height:100%;
-    background:linear-gradient(90deg,#ff69b4,#ffb6c1);
-    transition:.4s;
-}
-
-.progressText{
-    margin-top:10px;
-    font-weight:bold;
-    text-align:center;
-}
-
-/* ==========================================
-MEMORY GARDEN
-========================================== */
-
-.gardenSection{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
-}
-
-.gardenTitle{
-    text-align:center;
-    margin-bottom:15px;
-}
-
-#garden{
-    min-height:220px;
+.lockCard{
+    background:white;
+    padding:30px;
     border-radius:20px;
-    padding:20px;
-    background:rgba(255,255,255,.35);
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
+    text-align:center;
 }
 
-body.night #garden{
-    background:rgba(255,255,255,.05);
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
 }
-
-.flower{
-    font-size:30px;
-    animation:bloom .6s ease;
-}
-
-@keyframes bloom{
-    from{
-        transform:scale(0);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-}
-
-/* ==========================================
-LETTERS GRID
-========================================== */
 
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
-    gap:18px;
+    grid-template-columns:repeat(auto-fit,minmax(80px,1fr));
+    gap:10px;
+    padding:20px;
 }
 
 .letter{
-    width:90px;
-    height:65px;
+    width:80px;
+    height:60px;
     background:#fffaf0;
-    margin:auto;
-    border-radius:8px;
-    cursor:pointer;
+    border-radius:10px;
     position:relative;
-    transition:.25s;
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
-}
-
-.letter:hover{
-    transform:translateY(-5px);
 }
 
 .letter::before{
     content:'';
     position:absolute;
-    border-left:45px solid transparent;
-    border-right:45px solid transparent;
-    border-top:28px solid #e8d7c5;
+    border-left:40px solid transparent;
+    border-right:40px solid transparent;
+    border-top:25px solid #e8d7c5;
 }
 
 .seal{
-    width:14px;
-    height:14px;
-    background:#b22222;
+    width:12px;
+    height:12px;
+    background:red;
     border-radius:50%;
     position:absolute;
+    top:25px;
     left:50%;
-    top:28px;
     transform:translateX(-50%);
 }
 
-.opened{
-    opacity:.5;
-}
-
-.golden{
-    background:gold;
-    animation:goldGlow 1.5s infinite alternate;
-}
-
-@keyframes goldGlow{
-    from{
-        box-shadow:0 0 10px gold;
-    }
-    to{
-        box-shadow:0 0 25px gold;
-    }
-}
-
-/* ==========================================
-MODAL
-========================================== */
-
 .modal{
+    display:none;
     position:fixed;
     inset:0;
-    display:none;
+    background:rgba(0,0,0,0.7);
     justify-content:center;
     align-items:center;
-    background:rgba(0,0,0,.75);
-    z-index:999;
 }
 
 .paper{
-    width:min(92%,700px);
-    border-radius:20px;
-    padding:30px;
-    background:#f7e8c9;
-    box-shadow:0 20px 50px rgba(0,0,0,.3);
-}
-
-body.night .paper{
-    background:#2f2036;
-    color:white;
-}
-
-.paper h2{
-    margin-bottom:15px;
-}
-
-#letterText{
-    font-family:'Caveat',cursive;
-    font-size:2rem;
-    line-height:1.4;
-    min-height:150px;
-}
-
-.modalButtons{
-    margin-top:20px;
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-/* ==========================================
-PUZZLE
-========================================== */
-
-#puzzleUnlock{
-    display:none;
-    text-align:center;
-    padding:40px 20px;
-}
-
-.unlockCard{
-    max-width:600px;
-    margin:auto;
+    background:#fff6d5;
     padding:25px;
     border-radius:20px;
-    background:rgba(255,255,255,.35);
-}
-
-body.night .unlockCard{
-    background:rgba(255,255,255,.08);
-}
-
-/* ==========================================
-SECRET LETTER
-========================================== */
-
-#bonusLetter{
-    display:none;
-    padding:40px 20px;
-    text-align:center;
-}
-
-.bonusCard{
-    max-width:700px;
-    margin:auto;
-    padding:30px;
-    border-radius:25px;
-    background:#fff6d5;
-}
-
-body.night .bonusCard{
-    background:#33253d;
-}
-
-/* ==========================================
-FINAL DOOR
-========================================== */
-
-#finalDoor{
-    display:none;
-    text-align:center;
-    padding:60px 20px;
-}
-
-.door{
-    width:180px;
-    height:300px;
-    margin:30px auto;
-    border-radius:120px 120px 0 0;
-    background:linear-gradient(#6d4735,#3f291f);
-    position:relative;
-    cursor:pointer;
-    animation:doorGlow 2s infinite alternate;
-}
-
-.door::after{
-    content:'';
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    background:gold;
-    position:absolute;
-    right:25px;
-    top:140px;
-}
-
-@keyframes doorGlow{
-    from{
-        box-shadow:0 0 20px rgba(255,215,0,.3);
-    }
-    to{
-        box-shadow:0 0 45px rgba(255,215,0,.8);
-    }
-}
-
-/* ==========================================
-ENDING SCREEN
-========================================== */
-
-#endingScreen{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:10000;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:rgba(0,0,0,.9);
-    color:white;
-    padding:30px;
-}
-
-.endingContent{
-    max-width:800px;
-}
-
-.endingContent h1{
-    font-size:clamp(2rem,6vw,5rem);
-    margin-bottom:20px;
-}
-
-.endingContent p{
-    font-size:clamp(1.2rem,3vw,2rem);
-    line-height:1.6;
-}
-
-/* ==========================================
-RESPONSIVE
-========================================== */
-
-@media(max-width:600px){
-
-    .letter{
-        width:80px;
-        height:60px;
-    }
-
-    .letter::before{
-        border-left:40px solid transparent;
-        border-right:40px solid transparent;
-    }
-
-    #letterText{
-        font-size:1.7rem;
-    }
-
+    width:80%;
 }
