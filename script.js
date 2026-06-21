@@ -67,7 +67,7 @@ function openLetter(index) {
 
         updateProgress();
         updateGarden();
-        rebuildLetters(); // 💥 refresh visual state
+        rebuildLetters();
     }
 
     modal.style.display = "flex";
@@ -75,10 +75,13 @@ function openLetter(index) {
 
     if (index === 99) {
         letterTitle.textContent = "💖 FINAL LETTER 💖";
-        letterText.textContent =
-            "You opened all 100 reasons... and I still have infinite more for you ❤️";
+        typeWriter(
+            "You opened all 100 reasons... and I still have infinite more for you ❤️",
+            letterText,
+            20
+        );
     } else {
-        letterText.textContent = reasons[index];
+        typeWriter(reasons[index], letterText, 20);
     }
 }
 
