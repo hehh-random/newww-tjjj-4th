@@ -33,7 +33,7 @@ const reasons = [
 "Tu mujhe hamesha samajhne ki koshish karta hai 🥲🫠",
 "tu meri overthinking ko bhi handle kar leta hai 🫶(kudhki overthinking ka ky😏 usko bhi kr handle)",
 "Tu mujhe hamesha 1st priority feel karwata hai 😏",
-"Mai kitni bhi ladhti hu, tu phir bhi ruk jata h😭",
+"Mai kitna bhi ladhti hu, tu phir bhi ruk jata h😭",
 "Tu meri har jealousy ko cute bana deta hai 😛",
 "‘betuuu,bachaaa’ kehke special feel karwata hai 😭",
 "Teju + Isha = chaotic but real 😏",
