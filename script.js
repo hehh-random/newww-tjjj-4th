@@ -98,6 +98,13 @@ const reasons = [
 "tere bina complain kis se kru fir😭",
 "tu sirf banda nhi... adat h🥲",
 "4 months hi hue h... aur itni aadat lg gyi apki🥲",
+"ek din apko itna tang krungii real mai😈",
+"abhi bach gye ho sirf distance ki wajah se😒",
+"paragraph likhna band mt krna🙂",
+"acha next kholo😒",
+"isme kuch khaas nhi h😛",
+"continue kro🥲",
+"bsss itiii hii haii banddd krrr abbbb🙂",
 "ek baat bolu??😭(rehne do sharam aa rhi h😔)",
 "Bas itna hi kehna tha... Thank you meri life me aane ke liye. Har ladaii.. har hasi.. har ff match.. har late night baat... sab meri favourite memories hain. I know mai drama karti hu 😭 but i really love you bohot bohot bohot zyada. Promise karna hamesha aise hi mera haath pakad ke rakhegaa and hameshaaa sath rahegaaaa. loveee youuu bachaaa💋🫠",
 ];
