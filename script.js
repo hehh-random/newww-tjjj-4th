@@ -45,7 +45,7 @@ const reasons = [
 "ab toh ap hi melaa emotional support ban gaye ho😙",
 "🥲itna tk kese lage??😭",
 "Tu mujhe hamesha feel karwata hai ki I matter 🫶😙",
-"meri har stupid baat ko seriouse noiih letaa😛",
+"meri stupid baat ko seriouse noiih letaa😛",
 "ik todheee (sirf todhe) drame krti hu buttt jhelne padhegee apkooo😙",
 "😭apke wo paragraphs🫠",
 "Tu mujhe kabhi akela feel nahi hone deta 🫤😭",
