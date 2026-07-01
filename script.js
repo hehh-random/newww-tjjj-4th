@@ -71,7 +71,7 @@ const reasons = [
 "Kyuki tu mujhe kabhi give up nahi krne deta😚",
 "Kabhi kabhi bas ek hug krne ka mann krta hai 🥲",
 "Meri life ka best plot twist hai tuu 😭",
-"Meri bak bak lifetime subscription hai... cancel nahi hogi 😛",
+"Meri bak bak ka lifetime subscription le rakha h apne... cancel nahi hogi 😛",
 "Ab itna padh liya hai toh thank you bhi bol do 😤",
 "Apko tang kiye bina mera din complete hi nahi hota 😭",
 "Jyada udd mat... pankh kaat dungi 😭",
