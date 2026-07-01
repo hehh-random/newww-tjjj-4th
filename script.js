@@ -78,7 +78,7 @@ const reasons = [
 "Apki choice toh mast hai... mujhe choose kiya 😭",
 "Jyada kush mt ho... password mere paas hai 😈(betee gussa aya toh pass change kr dungi😛)",
 "Jyada blush mat kro phone garam ho jayega 😭",
-"Mera emotional damage bill ap bharoge 😌",
+"Mera emotional damage ka bill ap bharoge 😌",
 "Ab website khatam... ab call pe aajao 😤❤️",
 "apke bina bak bak krne ka mann hi nhi krta🥲",
 "kbhi kbhi sochti hu... itna jhel kese lete ho merko😭",
